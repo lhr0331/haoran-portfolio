@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PORTFOLIO | Haoran Li</title>
+  <meta name="description" content="Haoran Li photography portfolio, A Silent Walk Through Light, 光影里的独行者">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css?v=20260701-gallerydetail2">
+</head>
+<body>
+  <div id="webgl-stage" aria-hidden="true"></div>
+  <div class="scene-wash" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="route-transition" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <header class="site-header" aria-label="Primary navigation">
+    <a class="brand" href="#gallery">Haoran Li</a>
+    <nav class="top-nav">
+      <a href="#gallery">Gallery</a>
+      <a href="#cover" data-jump="0">Cover</a>
+      <a href="#observer" data-jump="3">Observer</a>
+      <a href="#habitat" data-jump="8">Habitat</a>
+      <a href="#nostalgia" data-jump="16">Nostalgia</a>
+      <a href="#journey" data-jump="23">Journey</a>
+      <a href="#sketches" data-jump="30">Sketches</a>
+      <a href="#finale" data-jump="32">Finale</a>
+      <a href="#visual-index" data-jump="33">Index</a>
+    </nav>
+  </header>
+
+  <button class="sound-toggle" type="button" aria-pressed="false" aria-label="开启音乐">
+    <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="sound-label">准备播放</span>
+  </button>
+
+  <aside class="music-panel" aria-label="Local music player">
+    <div class="music-meta">
+      <span>本地音乐</span>
+      <strong class="music-track-name">等待音频文件</strong>
+    </div>
+    <div class="music-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <p class="music-status">请把音乐文件放到 <code>music/portfolio-track.mp3</code>，页面会优先自动播放本地音乐。</p>
+  </aside>
+
+  <div class="audio-gate is-hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-label="进入并播放音乐">
+    <div class="audio-gate__inner">
+      <p class="eyebrow">Sound On</p>
+      <h2>进入光影穿梭</h2>
+      <p>点击后播放本地音乐，并开始浏览这个 3D 影像空间。</p>
+      <button class="audio-gate__button" type="button">进入并播放</button>
+    </div>
+  </div>
+
+  <audio id="portfolio-audio" preload="auto" loop playsinline></audio>
+
+  <aside class="flight-panel" aria-label="Current image">
+    <span class="flight-index">01</span>
+    <span class="flight-title">Silent Sea</span>
+    <span class="flight-chapter">Cover</span>
+  </aside>
+
+  <main class="walkthrough">
+    <section class="gallery-section" id="gallery" aria-label="3D gallery corridor">
+      <div class="gallery-copy">
+        <p class="eyebrow">Gallery Corridor</p>
+        <h1>WALK THROUGH</h1>
+        <p class="title-cn">进入影像长廊</p>
+        <p class="positioning">移动鼠标左右观察，点击长廊中的任意作品进入对应位置。</p>
+      </div>
+      <div class="gallery-shortcuts" id="gallery-shortcuts" aria-label="Open each photograph"></div>
+    </section>
+
+    <section class="scene-section hero-section" id="cover" data-scene="0">
+      <div class="scene-copy hero-copy">
+        <p class="eyebrow">A Silent Walk Through Light</p>
+        <h1>PORTFOLIO</h1>
+        <p class="title-cn">光影里的独行者</p>
+        <p class="positioning">城市边缘的影像记录者</p>
+      </div>
+    </section>
+
+    <section class="scene-section" id="observer" data-scene="3">
+      <article class="scene-copy side-note">
+        <p class="eyebrow">Introduction</p>
+        <h2>About the Observer</h2>
+        <h3>关于观察者</h3>
+        <p>我记录夜晚的动物、城市边缘的旧街、庙宇的红色、船上的生活和海边的风。影像不是装饰，而是让我进入记忆的一种方式。</p>
+      </article>
+    </section>
+
+    <section class="scene-section" id="habitat" data-scene="8">
+      <article class="scene-copy book-note">
+        <p class="eyebrow">Part 1</p>
+        <h2>Habitat</h2>
+        <h3>栖居</h3>
+        <p>城市不是背景。它像一层缓慢移动的光，收纳人、街道、树影和时间，也把观看者带入生活正在发生的地方。</p>
+      </article>
+    </section>
+
+    <section class="scene-section" id="nostalgia" data-scene="16">
+      <article class="scene-copy book-note right">
+        <p class="eyebrow">Part 2</p>
+        <h2>Nostalgia</h2>
+        <h3>怀旧</h3>
+        <p>旧空间被拆开以后，记忆反而变得更清晰。那些破墙、塑料布和光线像一场安静的仪式，把童年的回声重新放回眼前。</p>
+      </article>
+    </section>
+
+    <section class="scene-section" id="journey" data-scene="23">
+      <article class="scene-copy book-note">
+        <p class="eyebrow">Part 3</p>
+        <h2>The Journey</h2>
+        <h3>旅程</h3>
+        <p>船、窗、山和水构成临时的世界。观看者在画面之间前进，也像在记忆之间穿行，寻找下一束光落下的位置。</p>
+      </article>
+    </section>
+
+    <section class="scene-section" id="sketches" data-scene="30">
+      <article class="scene-copy book-note right">
+        <p class="eyebrow">Part 4</p>
+        <h2>Sketches</h2>
+        <h3>素描</h3>
+        <p>素描让观看变慢。它把普通物件留在纸上，也把摄影之外的观察方式放进作品集。</p>
+      </article>
+    </section>
+
+    <section class="scene-section finale-section" id="finale" data-scene="32">
+      <article class="scene-copy finale-copy">
+        <p class="eyebrow">Finale</p>
+        <h2>Light Returns To Water</h2>
+        <h3>光最终回到水面</h3>
+        <p>这条穿梭路径从水面开始，也在水面收束。照片没有给出终点，只留下继续观看的方向。</p>
+        <a class="finale-link" href="mailto:1813344780@qq.com">1813344780@qq.com</a>
+      </article>
+    </section>
+
+    <section class="archive-section" id="visual-index">
+      <div class="archive-head">
+        <p class="eyebrow">Visual Index</p>
+        <h2>影像索引</h2>
+        <p>所有图片以完整比例呈现。这里像摄影书的接触印样，用来回看整条穿梭路径。</p>
+      </div>
+      <div class="archive-grid" id="archive-grid" aria-label="Complete image index"></div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="scene-copy contact-copy">
+        <p class="eyebrow">Contact</p>
+        <h2>Let the light stay a little longer.</h2>
+        <h3>让光停留久一点</h3>
+        <a href="mailto:1813344780@qq.com">1813344780@qq.com</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="sound.js?v=20260630-local4"></script>
+  <script type="module" src="script.js?v=20260701-gallerydetail2"></script>
+</body>
+</html>
