@@ -1,4 +1,4 @@
-import * as THREE from "./vendor/three.module.min.js";
+import * as THREE from "./vendor/three.module.min.js?v=20260702-fix1";
 
 const images = [
   ["source-14.jfif", "Silent Sea", "Cover"],

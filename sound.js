@@ -2,12 +2,7 @@
   const candidates = [
     {
       title: "Where Did U Go",
-      artist: "G.E.M. 邓紫棋",
-      src: "music/G.E.M.邓紫棋 - Where Did U Go.flac"
-    },
-    {
-      title: "Portfolio Track",
-      artist: "Local audio",
+      artist: "G.E.M.",
       src: "music/portfolio-track.mp3"
     },
     {
@@ -40,6 +35,7 @@
   const gate = document.querySelector(".audio-gate");
   const gateButton = document.querySelector(".audio-gate__button");
   const audio = document.querySelector("#portfolio-audio");
+
   if (!button || !label || !panel || !gate || !gateButton || !audio) return;
 
   let active = false;
@@ -62,15 +58,6 @@
     if (status) status.textContent = message;
   }
 
-  function setTrack(track) {
-    selected = track;
-    if (trackName) trackName.textContent = track.title;
-    audio.src = track.src;
-    audio.volume = 0.74;
-    hasResolvedSource = true;
-    setStatus("已连接本地音乐。若浏览器拦截自动播放，请点击画面中央按钮进入。");
-  }
-
   function updateUi(mode) {
     const isOn = mode === "on";
     const isBlocked = mode === "blocked";
@@ -79,7 +66,7 @@
     button.setAttribute("aria-pressed", String(isOn));
 
     if (!selected) {
-      label.textContent = "等待音乐文件";
+      label.textContent = "等待音乐";
       return;
     }
 
@@ -102,10 +89,19 @@
     }
   }
 
-  async function playFromUserIntent() {
+  function setTrack(track) {
+    selected = track;
+    if (trackName) trackName.textContent = track.title;
+    audio.src = track.src;
+    audio.volume = 0.74;
+    hasResolvedSource = true;
+    setStatus("已连接本地音乐。若浏览器阻止自动播放，请点击进入按钮继续。");
+  }
+
+  async function playAudio() {
     if (!selected) {
       openPanel();
-      setStatus("还没有检测到音乐文件。请把歌曲放到 music/portfolio-track.mp3 后刷新页面。");
+      setStatus("未检测到本地音乐文件。请把歌曲放到 music/portfolio-track.mp3 后刷新页面。");
       updateUi("blocked");
       return;
     }
@@ -116,7 +112,7 @@
       hideGate();
       openPanel();
       updateUi("on");
-    } catch (error) {
+    } catch {
       active = false;
       showGate();
       updateUi("blocked");
@@ -132,9 +128,7 @@
   }
 
   function tryAutoplay() {
-    window.setTimeout(() => {
-      playFromUserIntent();
-    }, 520);
+    window.setTimeout(playAudio, 520);
   }
 
   function loadNextCandidate() {
@@ -183,14 +177,14 @@
       pauseAudio();
       return;
     }
-    playFromUserIntent();
+    playAudio();
   });
 
-  gateButton.addEventListener("click", playFromUserIntent);
+  gateButton.addEventListener("click", playAudio);
 
   document.addEventListener("pointerdown", () => {
     if (!active && selected && !gate.classList.contains("is-hidden")) {
-      playFromUserIntent();
+      playAudio();
     }
   }, { once: true });
 
